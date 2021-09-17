@@ -1,0 +1,40 @@
+title: Dublin Data Explorer
+description_html: |-
+  <p>Welcome to <a href="https://codema.ie/">Codema's</a> data explorer!</p>
+  <p>Click on the links below each dataset</p>
+  <div>
+    <p>If you are a member of Codema, SEAI or the 4 Dublin Local Authorities:</p>
+    <ol>
+      <li>- Please contact <a href="mailto:codema-dev@codema.ie">codema-dev@codema.ie</a> to request access</li>
+      <li>- Sign in at <a href="/-/login">/-/login</a> with your username and password</code></p></li>
+    </ol>
+    <p>To access:</p>
+    <ol>
+      <li>- The Building Energy Ratings @ small area level</li>
+      <li>- The Valuation Office @ individual building level</li>
+    </ol>
+  </div>
+databases:
+  buildings:
+    allow:
+      id: "codema"
+    tables:
+      bers:
+        title: Dublin Synthetic Building Energy Ratings (BER)
+        description_html: |-
+          <p>This dataset was created by combining:</p>
+          <ul>
+            <li>SEAI Small Area BERs [06/2021]</li>
+            <li>CSO Census [2016]</li>
+            <li>Archetypes created on the BERs</li>
+          </ul>
+        facets:
+          - local_authority
+          - Descriptor
+          - period_built
+          - dwelling_type
+          - energy_rating
+plugins:
+  datasette-auth-passwords:
+    codema_password_hash:
+      "$env": "CODEMA_PASSWORD_HASH"
